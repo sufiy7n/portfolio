@@ -23,6 +23,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script type="text/javascript">
+  emailjs.init('gpk81Q5L_v_jdudN4')
+</script>
 </head>
 
 <body>
@@ -834,6 +840,7 @@
     - custom js link
   -->
   <script src="script.js"></script>
+  
 
   <!--
     - ionicon link
@@ -841,6 +848,27 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "gpk81Q5L_v_jdudN4",
+      });
+   })();
+</script> 
+<script>let form = document.getElementById("form");
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (form.checkValidity()) {
+      var params = {
+        fullname: document.getElementById("fullname").value,
+        email_id: document.getElementById("email_id").value,
+        message: document.getElementById("message").value
+      };
+      emailjs.send("service_owxjj3r", "template_qbb5hfe", params).then(function(res) {
+        alert("Success " + res.status);
+      })
+    }
+  })</script>
 </body>
 
 </html>
